@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = clickMe;
+      function clickMe() {
+        let butt = document.querySelector("button");
+        butt.onclick = clickHere;
+      }
+      function clickHere() {
+        if (document.querySelector("div[id='elementId']")) {
+          return;
+        }
+        let mazdaDetails = document.createElement("div");
+        mazdaDetails.setAttribute("id", "elementId");
+        mazdaDetails.style.border = "1px solid";
+        mazdaDetails.style.height = "50px";
+        mazdaDetails.style.padding = "10px";
+        mazdaDetails.style.width = "fit-content";
+        mazdaDetails.innerHTML =
+          "model: cx5 , price: 37000, made in : Japan, mileage: 24mpg";
+        document.body.append(mazdaDetails);
+      }
+      function displayNone() {
+        let detail = document.getElementById("elementId");
+
+        detail.remove();
+      }
+      let temerId = setInterval(displayNone, 5000);
+    </script>
+  </head>
+  <body>
+    <div>
+      <button>Click Here</button>
+    </div>
+  </body>
+</html>

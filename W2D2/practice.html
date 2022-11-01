@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myDiv">
+      <form id="myForm">
+        <label>Name:</label>
+        <input type="text" />
+
+        <h5>Address:</h5>
+        <label>City:</label>
+        <input type="text" />
+
+        <label>Street:</label>
+        <input type="text" />
+
+        <h5>Gender</h5>
+        <label>Male:</label>
+        <input type="radio" name="gender" value="male" />
+        <label>Female:</label>
+        <input type="radio" name="gender" value="female" />
+        <label>Other:</label>
+        <input type="radio" name="gender" value="other" />
+
+        <br />
+        <lable>Field Of Work</lable>
+        <input type="text" />
+        <label>Work Experince:</label>
+        <select id="numberOfexperince" onchange="selectHere()">
+          <option value="ne" id="noExperince">No experince</option>
+          <option value="one" class="yesExperince">1 year</option>
+          <option value="two" class="yesExperince">2 year</option>
+          <option value="three" class="yesExperince">3 year</option>
+          <option value="four" class="yesExperince">4 year</option>
+          <option value="five" class="yesExperince">5 year</option>
+          <option value="six" class="yesExperince">6 year</option>
+          <option value="seven" class="yesExperince">7 year</option>
+        </select>
+        <br />
+        <div id="myId1"></div>
+      </form>
+    </div>
+    <script>
+      let myDiv1 = document.getElementById("myId1");
+      let noexperience = document.getElementById("noExperince");
+      let yesExperince = document.getElementsByClassName("yesExperince");
+
+      let myLabel = document.createElement("lable");
+      let myInput = document.createElement("textarea");
+
+      myLabel.innerHTML = "Describe Your Work:";
+      myInput.setAttribute("rows", 10);
+      myInput.setAttribute("cols", 50);
+      myDiv1.append(myLabel, myInput);
+      myDiv1.style.visibility = "hidden";
+
+      function selectHere() {
+        let selectId = document.getElementById("numberOfexperince").value;
+        console.log(selectId);
+        if (selectId == "ne") {
+          myDiv1.style.visibility = "hidden";
+        } else myDiv1.style.visibility = "visible";
+      }
+    </script>
+  </body>
+</html>

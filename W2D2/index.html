@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="firstDiv">
+      <p>Outside Paragraph</p>
+      <div>
+        <p>inside paragraph</p>
+        <p>hidden</p>
+        <p>sibling of paragraph</p>
+      </div>
+    </div>
+    <button onclick="clickMe()">Add</button>
+
+    <script>
+      let myInput = document.createElement("input");
+      myInput.type = "checkbox";
+      myInput.name = "fruits";
+      myInput.value = "apple";
+      myInput.id = "myId";
+
+      let myLabel = document.createElement("label");
+      myLabel.htmlFor = "myId";
+      myLabel.innerHTML = "Apple";
+      document.body.append(myLabel);
+      document.body.append(myInput);
+
+      let myLabel1 = document.createElement("label");
+      myLabel1.htmlFor = "myId1";
+      myLabel1.innerHTML = " " + " Orange";
+
+      let myInput1 = document.createElement("input");
+      myInput1.type = "checkbox";
+      myInput1.name = "fruits";
+      myInput1.value = "orange";
+      myInput1.id = "myId1";
+      document.body.append(myLabel1);
+      document.body.append(myInput1);
+
+      //   let myDiv = document.createElement("div");
+      //   let myDivv = myDiv.appendChild(myInput);
+      //   myDivv = myDiv.appendChild(myInput1);
+
+      console.log(myInput);
+      console.log(myInput1);
+      console.log(myLabel);
+      console.log(myLabel1);
+
+      let removeMyDiv = document.getElementById("firstDiv");
+      removeMyDiv.remove();
+
+      function clickMe() {
+        let domFruits = document.querySelectorAll("input[name='fruits']");
+        console.log(domFruits);
+        for (let ele of domFruits) {
+          if (ele.checked) {
+            console.log(ele.value);
+          }
+        }
+      }
+
+      //toggle show/ hide elements
+      //   if (div.style.display == "none") div.style.display = "block";
+      //   else div.style.display = "none";
+      //toggle visibility
+      // if (div.style.visibility == "hidden") div.style.visibility = "hidden";
+      // else div.style.visibility = "hidden";
+    </script>
+  </body>
+</html>

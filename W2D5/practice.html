@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let arrayOfNumber = [9, 6, 2, 3, 4, 5];
+
+        let input = document.createElement("input");
+        let button = document.createElement("button");
+        button.innerHTML = "map";
+
+        input.setAttribute("id", "map");
+        document.body.append(arrayOfNumber, input, button);
+        button.onclick = mapping;
+
+        function mapping() {
+          let input = document.getElementById("map");
+          let output = arrayOfNumber.map(function (ele, index) {
+            return ele * input.value;
+          });
+          output.sort(comparator);
+          let result = output.filter((element) => element % 2 === 0);
+
+          let div = document.createElement("div");
+          document.body.append(div);
+          div.append(result);
+        }
+        function comparator(a, b) {
+          return a - b;
+        }
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,102 @@
+.sub-container-1 {
+  border: 1px solid;
+  width: 45%;
+  background-color: antiquewhite;
+  float: right;
+  height: 50px;
+  text-align: center;
+  padding-top: 15px;
+}
+.sub-container-2 {
+  border: 1px dotted;
+  border-radius: 30%;
+  width: 45%;
+  background-color: pink;
+
+  height: 50px;
+  text-align: center;
+  padding-top: 15px;
+  color: aqua;
+}
+.flex-1 {
+  /* border: 2px solid; */
+
+  float: right;
+  /* flex: auto;
+  flex-wrap: wrap;
+  position: sticky;
+  text-align: center; */
+}
+.flex {
+  /* border: 1px solid; */
+  text-align: center;
+  flex-wrap: wrap;
+  flex: auto;
+  height: 300px;
+  width: 100%;
+  display: flex;
+}
+
+.flex img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+.flex-1 {
+  float: left;
+  width: 30%;
+}
+.flex-2 {
+  float: left;
+  width: 30%;
+  margin-left: 7%;
+}
+.flex-3 {
+  float: left;
+  width: 30%;
+  margin-left: 3%;
+}
+.grid-1 {
+  border: 1px solid;
+  border-radius: 20%;
+
+  padding-top: 15px;
+}
+
+.myGrid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: center;
+  text-align: center;
+}
+.background {
+  background-image: url("https://w7.pngwing.com/pngs/195/337/png-transparent-three-dimensional-square-background-texture-angle-other-thumbnail.png");
+  background-repeat: repeat;
+  height: 500px;
+  width: 85%;
+  margin-top: 20px;
+  margin-left: 50px;
+  text-align: center;
+  padding-top: 250px;
+}
+.myClass img {
+  height: 100px;
+  width: 100px;
+}
+.newLetter {
+  column-count: 3;
+}
+.myName {
+  display: grid;
+  grid-template-rows: 10% 90%;
+
+  gap: 10px;
+}
+.myDivv {
+  border: solid 1px;
+}
+:target {
+  background-color: aqua;
+}

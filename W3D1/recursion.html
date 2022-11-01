@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function factorial(n, j) {
+        let result = 1;
+        for (let i = 0; i < j; i++) {
+          result *= n;
+        }
+        return result;
+      }
+      factorial(2, 2);
+
+      function getStrings(s) {
+        if (s === "") return 0;
+        else return 1 + getStrings(s.substr(1));
+      }
+      console.log(getStrings("Nepal"));
+
+      function sumOfArray(sum) {
+        if (sum.length === 0) {
+          return 0;
+        }
+        let getLastNum = sum.pop;
+
+        return getLastNum + sumOfArray(getLastNum);
+      }
+      console.log(sumOfArray([2, 3]));
+    </script>
+  </head>
+  <body></body>
+</html>

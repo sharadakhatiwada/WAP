@@ -1,0 +1,15 @@
+.myTable tr td {
+  border: 1px solid;
+  border-color: black;
+  padding: 2px;
+}
+* {
+  background-color: bisque;
+}
+h1 {
+  font-size: medium;
+  font-style: oblique;
+}
+label {
+  border: 2px solid;
+}

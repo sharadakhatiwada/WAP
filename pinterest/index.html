@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    /> -->
+
+    <script>
+      function clickHere() {
+        let element = document.getElementById("myInput");
+        console.log(element.value);
+        document.getElementById("box").innerHTML = element.value;
+
+        let newFruits = document.getElementById("fruits").value;
+
+        let initial = document.getElementById("fruitsSection").innerHTML;
+        document.getElementById("fruitsSection").innerHTML =
+          initial + " " + newFruits;
+        fruits.value = "";
+
+        // let myValue= element.value;
+      }
+      function readMore() {
+        let paragraph = document.getElementById("myP");
+        document.getElementById("button1").innerHTML = paragraph.innerHTML;
+      }
+      document.addEventListener("DOMContentLoaded", (event) => {
+        let myAnchor = document.getElementById("google");
+        myAnchor.setAttribute("href", "https://www.pinterest.com/");
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <i class="fa-brands fa-pinterest"></i>
+      </div>
+      <ul>
+        <li><lable>Home</lable></li>
+        <li>Create</li>
+        <li>
+          <input
+            type="text"
+            placeholder="fa-thin fa-magnifying-glass, Search"
+          />
+        </li>
+        <li><i class="fa-sharp fa-solid fa-bell"></i></li>
+        <li><i class="fa-solid fa-comment-dots"></i></li>
+      </ul>
+    </div>
+    <div class="main-container">
+      <div class="sub-grid">
+        <img
+          style="height: 250px"
+          src="https://images.wideopencountry.com/wp-content/uploads/2016/10/Fall.jpg"
+        />
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+      </div>
+      <div class="sub-grid">
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2016/09/fall.jpg"
+        />
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+      </div>
+      <div class="sub-grid">
+        <img
+          src="https://www.wideopencountry.com/wp-content/uploads/2016/10/15703889531_2c6ce6f857_o.jpg"
+        />
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+      </div>
+      <div class="sub-grid">
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2016/10/bigstock-134510309.jpg"
+        />
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+      </div>
+      <div class="sub-grid">
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+        <img
+          src="https://images.wideopencountry.com/wp-content/uploads/2015/04/Garner-State-Park.jpg"
+        />
+      </div>
+    </div>
+
+    <div class="saveButton">Save</div>
+    <input id="myInput" type="text" style="margin-top: 10px" />
+    <button onclick="clickHere()">Submit</button>
+    <div id="box"></div>
+    <p id="myP">Hi this is page.</p>
+    <button id="button1" onclick="readMore()">Read More</button>
+    <a id="google" href="https://www.google.com/">Google</a>
+
+    <div id="fruitsSection"></div>
+    <input id="fruits" type="text" />
+  </body>
+</html>

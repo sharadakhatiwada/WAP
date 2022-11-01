@@ -1,0 +1,93 @@
+.navigationBar {
+  background-color: #faf8f5;
+  text-align: center;
+  font-size: clamp(
+    0.9339999999999999rem,
+    0.915680236861584rem + 0.07816432272390829vw,
+    1rem
+  );
+  min-height: 2.7rem;
+  padding-top: 1px;
+  font-family: PayPalOpen-Bold, Helvetica Neue, Arial, sans-serif;
+  letter-spacing: -0.04em;
+  color: #001c64;
+}
+.navigationBar a {
+  color: blue;
+}
+
+#logo {
+  height: 32px;
+  width: 30px;
+}
+li {
+  list-style: none;
+  padding: 15px;
+}
+.left ul li {
+  float: left;
+  margin: 10px;
+  font-size: 20px;
+  color: #001c64;
+}
+.right {
+  float: right;
+}
+.right-menu {
+  border-style: solid;
+  border-radius: 30px;
+  padding: 10px 25px 10px 25px;
+
+  border-color: #001c64;
+}
+.signup {
+  background-color: #001c64;
+  color: white;
+}
+.login {
+  color: #001c64;
+}
+.container-right {
+  float: right;
+  width: 50%;
+}
+.container-left {
+  float: left;
+  text-align: center;
+  width: 50%;
+}
+h1 {
+  font-size: 40px;
+  color: #001c64;
+  font-family: PayPalOpen-Bold, Helvetica Neue, Arial, sans-serif;
+  font-weight: 900;
+}
+p {
+  color: #001c64;
+}
+#flex {
+  height: 450px;
+  width: 450px;
+  /* margin-right: 80px; */
+}
+.header {
+  clear: both;
+}
+.container {
+  clear: both;
+}
+hr {
+  position: absolute;
+}
+#QR {
+  height: 50px;
+  width: 50px;
+}
+#phoneNumber {
+  width: 60px;
+  height: 30px;
+}
+#description {
+  font-size: 10px;
+  text-align: left;
+}

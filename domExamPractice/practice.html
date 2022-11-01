@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let fruits = ["mango", "orange", "kiwi", "apple", "banana"];
+      let checkedFruits = [];
+      window.onload = function () {
+        let fruitsDiv = document.getElementById("fruits");
+        for (let fruit of fruits) {
+          let label = document.createElement("label");
+          label.innerHTML = " " + fruit + ":";
+          let checkBox = document.createElement("input");
+          checkBox.setAttribute("type", "checkbox");
+          checkBox.setAttribute("name", "fruitsCheck");
+          checkBox.value = fruit;
+          console.log(checkBox);
+          fruitsDiv.append(label, checkBox);
+        }
+        let div = document.getElementById("checkedFruitsStayHere");
+        let ul = document.createElement("ul");
+        ul.setAttribute("id", "fruitsUl");
+        div.append(ul);
+        let button = document.createElement("button");
+        button.innerHTML = "Test";
+        button.onclick = checkElement;
+        document.body.append(button);
+
+        let sorting = document.createElement("button");
+        sorting.innerHTML = "Sort";
+        sorting.onclick = getSort;
+        document.body.append(sorting);
+      };
+
+      function checkElement() {
+        let checkBoxAll = document.querySelectorAll(
+          "input[name='fruitsCheck']"
+        );
+        for (let checkedBox of checkBoxAll) {
+          if (checkedBox.checked) {
+            if (!checkedFruits.includes(checkedBox.value)) {
+              checkedFruits.push(checkedBox.value);
+            }
+          }
+        }
+        getCheckedFruits();
+      }
+
+      function getCheckedFruits() {
+        let fruitsUl = document.getElementById("fruitsUl");
+        fruitsUl.innerHTML = "";
+        for (let fruit of checkedFruits) {
+          let deleteEle = document.createElement("button");
+
+          deleteEle.innerHTML = "Delete";
+          deleteEle.onclick = function () {
+            deleteElememnt(fruit);
+          };
+          let li = document.createElement("li");
+          li.append(fruit, deleteEle);
+          fruitsUl.append(li);
+        }
+      }
+      function getSort() {
+        checkedFruits.sort(comparator);
+        checkElement();
+      }
+      function comparator(a, b) {
+        if (a > b) return 1;
+        else if (a < b) return -1;
+        else return 0;
+      }
+      function deleteElememnt(fruit) {
+        // this.parentNode.remove();
+        let getIndex = checkedFruits.indexOf(fruit);
+        checkedFruits.splice(getIndex, 1);
+        getCheckedFruits();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="fruits"></div>
+    <div id="checkedFruitsStayHere"></div>
+  </body>
+</html>

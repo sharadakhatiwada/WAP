@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="examPractice.css" />
+    <script>
+      function submitHere() {
+        let showName = document.getElementById("myName").value;
+
+        let appendName = (document.getElementById("myInput").value = showName);
+        appendName = appendName + " " + showName;
+        let name = (document.createElement("p").innerHTML = "MY name is");
+        document.getElementById("myTD").append(name);
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <table>
+        <th>
+          <tr>
+            <td><label>Info</label></td>
+            <td>Descriptions</td>
+          </tr>
+        </th>
+        <tbody>
+          <tr>
+            <td><label>Name</label></td>
+            <td>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                id="myName"
+                onchange="submitHere()"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label>Your Hobby</label></td>
+            <td><textarea name="hobbies" cols="50" rows="10"></textarea></td>
+          </tr>
+          <tr>
+            <td><label>Choose Destination</label></td>
+            <td>
+              <input type="checkbox" name="destination1" id="a1" value="us" />
+              <label for="destination1">US</label><br />
+
+              <input
+                type="checkbox"
+                name="destination2"
+                id="a2"
+                value="nepal"
+              />
+              <label for="destination1"> Nepal</label><br />
+
+              <input
+                type="checkbox"
+                name="destination3"
+                id="a3"
+                value="india"
+              />
+              <label for="destination1"> India</label><br />
+
+              <input
+                type="checkbox"
+                name="destination4"
+                id="a4"
+                value="thailand"
+              />
+              <label for="destination1"> Thailand</label><br />
+            </td>
+          </tr>
+          <tr>
+            <td><label>Gender</label></td>
+            <td>
+              <input type="radio" name="gender" value="female" />
+              <label for="female">Female</label>
+
+              <input type="radio" name="gender" value="male" />
+              <label for="male">Male</label>
+
+              <input type="radio" name="gender" value="lgbtq" />
+              <label for="lgbtq">LGBTQ</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Click on Button</td>
+            <td>
+              <input type="button" value="clickMe" onclick="submitHere()" />
+              <!-- <button onclick="submitHere()">Submit</button> -->
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td id="myTD"><input type="text" id="myInput" /><br /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <div id="hello">Hello world</div>
+    <span id="hi">Hi there</span>
+    <div>
+      <a href="#hi">Go to hi</a>
+      <a href="#hello">Go to a1</a>
+    </div>
+  </body>
+</html>

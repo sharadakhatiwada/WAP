@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #banner {
+        height: 200px;
+        width: 200px;
+        border: 1px solid;
+        background-color: aqua;
+      }
+      #banner img {
+        height: 150px;
+        width: 150px;
+        padding: 25px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let setTimer = setInterval(toggleBanner, 2000);
+        setTimeout(() => {
+          clearInterval(setTimer);
+        }, 10000);
+        let fruitTable = document.getElementById("fruits");
+        let row = fruitTable.insertRow(2);
+        let coln = row.insertCell(0);
+        coln.innerHTML = "Grapes";
+
+        let tableRows = fruitTable.children[0].children;
+        console.log(tableRows);
+        let index = 1;
+        let ul = document.createElement("ul");
+        for (let tr of tableRows) {
+          if (index % 2 !== 0) {
+            let li = document.createElement("li");
+            li.innerHTML = tr.children[0].innerHTML;
+            ul.append(li);
+          }
+          index++;
+        }
+
+        for (let tr of tableRows) {
+          if (index % 2 === 0) {
+            let li = document.createElement("li");
+            li.innerHTML = tr.children[0].innerHTML;
+            ul.append(li);
+          }
+          index++;
+        }
+        let myDiv = document.createElement("div");
+        myDiv.style.border = "solid 1px";
+        document.body.append(myDiv);
+        myDiv.append(ul);
+        myDiv.style.width = "25%";
+        myDiv.setAttribute("id", "element");
+      };
+
+      function convert() {
+        let ul = document.createElement("ul");
+        let fruitTable = document.getElementById("fruits");
+
+        let tr = fruitTable.children[0].children;
+        console.log(tr);
+        for (let eachTr of tr) {
+          for (let eachTd of eachTr.children) {
+            let li = document.createElement("li");
+            li.innerHTML = eachTd.innerHTML;
+            ul.append(li);
+          }
+        }
+        document.body.append(ul);
+      }
+
+      //   function showUl() {
+      //     let table = document.getElementById("fruits");
+      //     let ul = document.createElement("ul");
+      //     let li = document.createElement("li");
+      //     ul.children = li;
+      //     console.log(ul.children);
+      //     // console.log(table);
+      //   }
+
+      function toggleBanner() {
+        let getBanner = document.getElementById("banner");
+        if (getBanner.style.display === "block")
+          getBanner.style.display = "none";
+        else getBanner.style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="banner">
+      <img
+        src="https://qph.cf2.quoracdn.net/main-qimg-f6841652612c8daaaccc5e5f17a850c3-lq"
+      />
+    </div>
+    <table id="fruits">
+      <tr>
+        <td>Apple</td>
+      </tr>
+      <tr>
+        <td>Mango</td>
+      </tr>
+
+      <tr>
+        <td>Orange</td>
+      </tr>
+      <tr>
+        <td>Guava</td>
+      </tr>
+      <tr>
+        <td>Banana</td>
+      </tr>
+    </table>
+    <button onclick="convert()">convert</button>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let id = 1;
+      let person = {
+        name: "harry",
+        age: 25,
+        skills: ["Java", "javaScript", "Python"],
+      };
+
+      let persons = [];
+
+      window.onload = function () {
+        let div = document.getElementById("inputs");
+        let tr = document.createElement("tr");
+        for (let p in person) {
+          let labelProporty = document.createElement("label");
+          labelProporty.innerHTML = p + ": ";
+          div.append(labelProporty);
+
+          if (Array.isArray(person[p])) {
+            let select = document.createElement("select");
+            select.setAttribute("id", p);
+            for (let skill of person[p]) {
+              let option = document.createElement("option");
+              option.setAttribute("name", skill);
+              option.innerHTML = skill;
+              select.append(option);
+            }
+            div.append(select);
+          } else {
+            let input = document.createElement("input");
+            input.setAttribute("name", p);
+            input.value = person[p];
+
+            div.append(input);
+          }
+
+          let td = document.createElement("td");
+          td.innerHTML = p;
+          // let td2 = document.createElement("td");
+          // let td3 = document.createElement("td");
+
+          tr.append(td);
+        }
+
+        let add = document.createElement("button");
+        add.innerHTML = "Add";
+        add.onclick = addArray;
+        div.append(add);
+
+        let divv = document.getElementById("createTable");
+        let table = document.createElement("table");
+        table.setAttribute("id", "table");
+        let tbodyName = document.createElement("tbody");
+        tbodyName.setAttribute("id", "tableBody");
+        // let th = document.createElement("th");
+        // th.append(tr);
+        table.append(tr);
+        table.append(tbodyName);
+        divv.append(table);
+      };
+      function addArray() {
+        let inputName = document.querySelector("input[name ='name']");
+        let inputAge = document.querySelector("input[name ='age']");
+        let skill = document.getElementById("skills");
+        let skilled;
+        for (let option of skill.children) {
+          if (option.selected) {
+            skilled = option.value;
+          }
+        }
+
+        persons.push({
+          id: id++,
+          name: inputName.value,
+          age: inputAge.value,
+          skill: skilled,
+        });
+        console.log(persons);
+        addElement();
+      }
+
+      function addElement() {
+        let getTable = document.getElementById("table");
+        let getTableBody = document.getElementById("tableBody");
+        getTableBody.innerHTML = "";
+        for (let person of persons) {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          td1.innerHTML = person.name;
+          let td2 = document.createElement("td");
+          td2.innerHTML = person.age;
+          let td3 = document.createElement("td");
+          td3.innerHTML = person.skill;
+          tr.append(td1, td2, td3);
+          getTableBody.append(tr);
+          tr.style.border = "1px solid";
+          td1.style.border = "1px solid";
+          td2.style.border = "1px solid";
+          td3.style.border = "1px solid";
+        }
+        getTable.append(getTableBody);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="inputs"></div>
+    <div id="createTable"></div>
+  </body>
+</html>

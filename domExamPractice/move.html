@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let flowers = ["tulip", "marigold"];
+      window.onload = function () {
+        let rightDiv = document.getElementById("rightSelected");
+        let select = document.createElement("select");
+        select.setAttribute("multiple", "true");
+        select.setAttribute("id", "selection");
+        for (let flower of flowers) {
+          let option = document.createElement("option");
+          option.innerHTML = flower;
+          select.append(option);
+        }
+        rightDiv.append(select);
+
+        let buttons = document.querySelectorAll("button");
+        buttons[1].onclick = moveLeft;
+        buttons[0].onclick = moveRight;
+
+        let div = document.getElementById("leftSelected");
+        let selectElement = document.createElement("select");
+        selectElement.setAttribute("multiple", "true");
+        selectElement.setAttribute("id", "left");
+        div.append(selectElement);
+      };
+      function moveLeft() {
+        let leftArray = [];
+        let select = document.getElementById("selection");
+        let leftSelect = document.getElementById("left");
+
+        let options = select.children;
+        for (let option of options) {
+          if (option.selected) {
+            leftArray.push(option);
+          }
+        }
+        leftSelect.append(...leftArray);
+      }
+
+      function moveRight() {
+        let rightArray = [];
+        let select = document.getElementById("left");
+        let rightSelect = document.getElementById("selection");
+        let options = select.children;
+        for (let option of options) {
+          if (option.selected) {
+            rightArray.push(option);
+          }
+        }
+        rightSelect.append(...rightArray);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="grid">
+      <div
+        id="rightSelected"
+        style="float: right; border: 1px solid; height: 200px; width: 200px"
+      ></div>
+      <div
+        id="leftSelected"
+        style="float: left; border: 1px solid; height: 200px; width: 200px"
+      ></div>
+      <div id="buttonsMove" style="float: left">
+        <button>Move Right</button>
+        <button>Move Left</button>
+      </div>
+    </div>
+  </body>
+</html>

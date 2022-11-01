@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let flowers = [
+        { name: "rose", color: "pink" },
+        { name: "tulip", color: "red" },
+        { name: "jasmine", color: "white" },
+        { name: "marigold", color: "orange" },
+      ];
+      function showAllElement() {
+        let div = document.getElementById("tableData");
+        div.innerHTML = "";
+        let buildTable = document.createElement("table");
+        let buildTableHead = document.createElement("th");
+
+        let buildTableTr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerHTML = "Name";
+        let td2 = document.createElement("td");
+        td2.innerHTML = "Color";
+        buildTableTr.append(td1, td2);
+        buildTableHead.append(buildTableTr);
+        buildTable.append(buildTableHead);
+        div.append(buildTable);
+
+        let tbody = document.createElement("tbody");
+        buildTable.append(tbody);
+        tbody.setAttribute("id", "tbody");
+        listLoop(flowers);
+      }
+
+      function listLoop(lists) {
+        let tbodyId = document.getElementById("tbody");
+        tbodyId.innerHTML = "";
+        for (let list of lists) {
+          let tr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          let td2 = document.createElement("td");
+          td1.innerHTML = list.name;
+          td2.innerHTML = list.color;
+          tr.append(td1, td2);
+          tbodyId.append(tr);
+        }
+      }
+
+      window.onload = function () {
+        let divv = document.getElementById("buttons");
+        let showAll = document.createElement("button");
+        divv.append(showAll);
+        showAll.innerHTML = "showAll";
+        showAll.onclick = showAllElement;
+
+        let filter = document.createElement("button");
+        divv.append(filter);
+        filter.innerHTML = "Filter";
+        filter.onclick = filterName;
+
+        let sortElement = document.createElement("button");
+        divv.append(sortElement);
+        sortElement.innerHTML = "Sort";
+        sortElement.onclick = sortingElement;
+
+        let labelName = document.createElement("label");
+        labelName.innerHTML = "Name:";
+        let inputName = document.createElement("input");
+        labelName.setAttribute("for", "inputName");
+        inputName.setAttribute("id", "inputNameId");
+
+        let labelColor = document.createElement("label");
+        labelColor.innerHTML = "Color:";
+        let inputColor = document.createElement("input");
+        labelColor.setAttribute("for", "inputColor");
+        inputColor.setAttribute("id", "labelColorId");
+
+        let add = document.createElement("button");
+        add.innerHTML = "Add";
+        add.onclick = createObj;
+        divv.append(inputName, labelName, inputColor, labelColor, add);
+      };
+
+      function createObj() {
+        let getName = document.getElementById("inputNameId");
+        let getColor = document.getElementById("labelColorId");
+        let obj = {
+          name: getName.value,
+          color: getColor.value,
+        };
+
+        flowers.splice(2, 0, obj);
+        showAllElement();
+      }
+      function sortingElement() {
+        let sortedElement = flowers.sort(comparator);
+        listLoop(sortedElement);
+      }
+      function comparator(a, b) {
+        if (a.color < b.color) return -1;
+        else if (a.color > b.color) return 1;
+        else return 0;
+      }
+
+      function filterName() {
+        let filteredName = flowers.filter(filterByName);
+        listLoop(filteredName);
+      }
+
+      function filterByName(flower) {
+        if (flower.name[0] === "r") {
+          return flower;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="buttons"></div>
+    <div id="tableData"></div>
+  </body>
+</html>

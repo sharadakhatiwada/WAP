@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let persons = [
+        { name: "Harry", age: 25, phoneNumber: 2345 },
+        { name: "Ram", age: 26, phoneNumber: 2346 },
+        { name: "Shyam", age: 27, phoneNumber: 2347 },
+        { name: "Gita", age: 35, phoneNumber: 2348 },
+        { name: "Sita", age: 20, phoneNumber: 2349 },
+      ];
+      window.onload = function () {
+        let getDiv = document.getElementById("tableId");
+
+        let getTable = document.createElement("table");
+        getDiv.append(getTable);
+        let getTh = document.createElement("th");
+        getTable.append(getTh);
+        let getTr = document.createElement("tr");
+        getTh.append(getTr);
+
+        let firstObj = persons[0];
+        let getKeys = Object.keys(firstObj);
+        for (let key of getKeys) {
+          let getTd = document.createElement("td");
+          getTd.innerHTML = key;
+          getTr.append(getTd);
+        }
+
+        for (let person of persons) {
+          let getTbodyTr = document.createElement("tr");
+          let td1 = document.createElement("td");
+          td1.innerHTML = person.name;
+          let td2 = document.createElement("td");
+          td2.innerHTML = person.age;
+          let td3 = document.createElement("td");
+          td3.innerHTML = person.phoneNumber;
+          let td4 = document.createElement("td");
+          td4.innerHTML = "<button>Delete</button>";
+          td4.onclick = getDeleted;
+          getTbodyTr.append(td1, td2, td3, td4);
+          getTable.append(getTbodyTr);
+        }
+      };
+      function getDeleted() {
+        this.parentNode.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="tableId"></div>
+  </body>
+</html>

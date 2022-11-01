@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let myAudi = document.getElementById("audi");
+        let myDetails = document.createElement("div");
+        let myPre = document.createElement("pre");
+        myDetails.append(myPre);
+        myDetails.style.display = "block";
+        myDetails.style.border = "1px solid";
+        myDetails.style.width = "fit-content";
+        myPre.innerHTML =
+          "e-tron® GT  Audi Q3  Audi Q5  Audi Q7 Audi Q8 A3 Sedan  Coupe  A7 A8";
+        myDetails.style.backgroundColor = "pink";
+        myAudi.append(myDetails);
+        myDetails.style.display = "none";
+
+        let myDiv = document.querySelector("div");
+
+        myDiv.style.backgroundColor = "yellow";
+
+        function detailsOfAudi() {
+          myDetails.style.display = "block";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <p>Hello World</p>
+    </div>
+    <div id="audi" onmouseover="detailsOfAudi">audi</div>
+  </body>
+</html>

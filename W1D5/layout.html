@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="layout.css" />
+    <script>
+      function clickHere(){
+        let news= document.getElementById("myNews");
+        let h4= document.createElement("h4");
+        h4.innerHTML="This is heading";
+        news.prepend(h4);
+        let div= document.createElement("div");
+        div.innerHTML="Hello World"
+        news.append(div);
+        let textField = document.createElement("textarea");
+        textField.value="$1000";
+        news.append(textField);
+
+        
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sub-container-1">Hi there</div>
+      <div class="sub-container-2">Hello World</div>
+    </div>
+    <div class="flex">
+      <div class="flex-1">
+        <p>MY HTML</p>
+        <hr/>
+        <img 
+          src="https://rukminim1.flixcart.com/image/416/416/poster/x/3/x/lord-krishna-shree-krishna-poster-avc9174a4-small-original-imaegrpsw9ukjxsv.jpeg?q=70"
+        />
+
+      </div>
+      <div class="flex-2">
+        <p>MY CSS</p>
+        <hr/>
+        <img  src="https://i.pinimg.com/736x/5d/5c/59/5d5c59414da5cea3d4cfc88f55c41f9a.jpg"></img>
+        
+      </div>
+      <div class="flex-3">
+          <p>MY class</p>
+          <hr/>
+          <img  src="https://rukminim1.flixcart.com/image/416/416/poster/x/3/x/lord-krishna-shree-krishna-poster-avc9174a4-small-original-imaegrpsw9ukjxsv.jpeg?q=70">
+      </div>
+    </div>
+    <div class="myGrid">
+        <div class="grid-1">Hi there
+       </div>
+        <div class="grid-1">2</div>
+        <div class="grid-1">3</div>
+        <div class="grid-1">4</div>
+        <div class="grid-1">5</div>
+        <div class="grid-1">6</div>
+
+    </div>
+    <div class="background">
+        <p id="hello" style="text-decoration:underline;">Hello World <sup>Hi</sup></p>
+    </div>
+    
+    <div class="myClass">
+         <img src="https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_1280.jpg"/> 
+    </div>
+    <div class="newLetter" id="myNews">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+    </div>
+    <button type="button" id="myButton" onclick="clickHere()">submit</button>
+    <div class="myName">
+      <div class="myDivv">Name</div>
+      <div class="myDivv">Description</div>
+     <div class="myDivv">Last Name</div>
+      <div class="myDivv">Address</div>
+    </div>
+    <a href="#hello" target="_blank">GO to Hello</a>
+    <div>
+      <label >Menu</label>
+      <select name="selectMe"  multiple>
+       
+        <option>momo</option>
+        <option>chowmin</option>
+        <option>pizza</option>
+        <option>burger</option>
+        <option>lalmohan</option>
+
+      </select>
+    </div>
+  </body>
+</html>

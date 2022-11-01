@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let myObj = { name: "Ram", age: 30, skills: ["java", "javascript"] };
+
+      window.onload = function () {
+        let labelName = document.createElement("label");
+        labelName.innerHTML = "Name";
+        let inputName = document.createElement("input");
+        inputName.setAttribute("value", myObj.name);
+        inputName.setAttribute("id", "name");
+        document.body.append(inputName);
+
+        let labelAge = document.createElement("label");
+        labelAge.innerHTML = "Age";
+        let ageInput = document.createElement("input");
+        ageInput.setAttribute("value", myObj.age);
+        ageInput.setAttribute("id", "age");
+        document.body.append(ageInput);
+
+        let skillLable = document.createElement("label");
+        skillLable.innerHTML = "Skills";
+        document.body.append(skillLable);
+        let select = document.createElement("select");
+        select.setAttribute("id", "skills");
+        document.body.append(select);
+
+        for (let skill of myObj.skills) {
+          let option = document.createElement("option");
+          option.innerHTML = skill;
+          select.append(option);
+        }
+      };
+      function submitForm() {
+        let getButton = document.querySelector("button");
+        let getName = document.getElementById("name");
+        let getAge = document.getElementById("age");
+        let getSkill = document.getElementById("skills");
+
+        myObj.name = getName.value;
+        myObj.age = getAge.value;
+        console.log(myObj);
+      }
+      function reloadForm() {
+        let getButton = document.querySelector("button");
+        let getName = document.getElementById("name");
+        let getAge = document.getElementById("age");
+        let getSkill = document.getElementById("skills");
+        getName.value = myObj.name;
+        getAge.value = myObj.age;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="submitForm()">Submit</button>
+    <button onclick="reloadForm()">Reload</button>
+  </body>
+</html>

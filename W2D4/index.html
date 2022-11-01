@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function move(fromId, toId) {
+        let flowers = document.getElementById(fromId);
+        let rightFlowers = document.getElementById(toId);
+
+        let flowerOptions = flowers.options;
+        console.log(flowerOptions);
+        let selected = [];
+        for (let option of flowerOptions) {
+          if (option.selected) {
+            selected.push(option);
+          }
+        }
+        rightFlowers.append(...selected);
+      }
+    </script>
+  </head>
+  <body>
+    <div style="display: grid; grid-template-columns: 20% 10% 20% 10%">
+      <div style="border: 1px solid; height: 70px">
+        <label for="flowers">Choose Flowers: </label>
+        <select id="flowers" multiple>
+          <option>Rose</option>
+          <option>Hibiscus</option>
+          <option>Tulip</option>
+          <option>Lily</option>
+          <option>Orchid</option>
+          <option>Daisy</option>
+          <option>Marigold</option>
+        </select>
+      </div>
+      <div style="padding: 20px">
+        <button onclick="move('flowers', 'flowersId')">Move Right</button>
+        <button onclick="move('flowersId', 'flowers' )">Move Left</button>
+      </div>
+      <div
+        id="divv"
+        style="border: 1px solid; height: 70px; overflow-y: scroll"
+      >
+        <select id="flowersId" multiple></select>
+      </div>
+    </div>
+  </body>
+</html>

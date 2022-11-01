@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let persons = [
+          { firstName: "Harry", lastName: "Chai", age: 30 },
+          { firstName: "Harsa", lastName: "Rai", age: 15 },
+          { firstName: "Barsa", lastName: "Rai", age: 26 },
+          { firstName: "shyam", lastName: "Nepali", age: 15 },
+          { firstName: "Ram", lastName: "Neupane", age: 28 },
+        ];
+        persons.reduce(reducedPerson, []);
+        function reducedPerson(accum, item) {
+          let fullName = item.firstName + " " + item.lastName;
+          return accum.push({ fullName: fullName, age: item.age });
+        }
+
+        persons.reduce(reducedPerson, []);
+        function reducedPerson(accum, item) {
+          return accum.push(item.age);
+        }
+
+        persons.filter(personFilter);
+        function personFilter(person) {
+          if (person.age > 20) return person;
+        }
+        let numbers = [3, 5, 10, 22, 98];
+        let doubledNumbers = numbers.map(double);
+        function double(number) {
+          return number * 2;
+        }
+        numbers.reduce(reduceNumbers, 0);
+
+        function reduceNumbers(accum, item) {
+          return (accum += item);
+        }
+
+        let filteredNumbers = numbers.filter(filterNumbers);
+        function filterNumbers(number) {
+          if (number < 50) return number;
+        }
+
+        for (let person of persons) {
+          document.body.append(person.firstName, person.lastName, person.age);
+        }
+        let mapped = document.createElement("button");
+        mapped.innerHTML = "map";
+
+        let filters = document.createElement("button");
+        filters.innerHTML = "filter";
+        filters.onclick = filteredAge;
+        document.body.append(filters);
+        document.body.append(mapped);
+
+        mapped.onclick = getMap;
+
+        function getMap() {
+          let mappedPersons = persons.map((element) => {
+            let fullName = element.firstName + " " + element.lastName;
+            return { fullName: fullName, age: element.age };
+          });
+          for (let person of mappedPersons) {
+            document.body.append(person.fullName, person.age);
+          }
+        }
+
+        function filteredAge() {
+          let filterAge = persons.filter((element) => {
+            return element.age < 18;
+          });
+
+          for (let person of filterAge) {
+            document.body.append(person.firstName, person.age);
+          }
+        }
+
+        persons.sort(comparator);
+
+        function comparator(a, b) {
+          if (a.firstName < b.firstName) return -1;
+          else if (a.firstName > b.firstName) return 1;
+          else return 0;
+        }
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

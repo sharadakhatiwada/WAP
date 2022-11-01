@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="styleSheet" href="styles.css" />
+    <script>
+      function showText() {
+        // let element = document.getElementById("userName");
+        // let myValue = element.value;
+        // let element1 = document
+        //   .getElementById("textValue")
+        //   .setAttribute("value", myValue);
+        console.log("ssnkn");
+        let myNewImage = document.getElementById("image");
+        console.log(myNewImage);
+
+        myNewImage.setAttribute(
+          "src",
+          "https://media.gettyimages.com/photos/butterflies-picture-id1201252148?s=2048x2048"
+        );
+      }
+
+      //   let div = document.createElement("div");
+      //   div.innerHTML = "Hello World";
+      //   document.getElementById("div").append(div);
+      //   console.log(div);
+    </script>
+  </head>
+  <body>
+    <img id="image" src="cat.jpeg" />
+    <div>
+      <label>User Name</label>
+      <input type="text" id="userName" />
+      <lable>Copy</lable>
+      <input type="text" id="textValue" />
+      <button id="submit" onclick="showText()" value="submit">Submit</button>
+    </div>
+  </body>
+</html>
